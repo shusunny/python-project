@@ -19,7 +19,6 @@ def player_input():
 def place_marker(board, marker, position):
     board[position] = marker
 
-
 def win_check(board,mark):
     
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or # across the top
@@ -79,19 +78,25 @@ while True:
         if turn == 'Player 1':
             # Player1's turn.
             
+            # show the board
             display_board(theBoard)
+            # choose a position
             position = player_choice(theBoard)
+            # place the marker on the position
             place_marker(theBoard, player1_marker, position)
 
+            # win check
             if win_check(theBoard, player1_marker):
                 display_board(theBoard)
-                print('Congratulations! You have won the game!')
+                print('Player 1 has won the game!')
                 game_on = False
+            # check if there is a tie
             else:
                 if full_board_check(theBoard):
                     display_board(theBoard)
                     print('The game is a draw!')
-                    break
+                    game_on = False
+                # next player's turn
                 else:
                     turn = 'Player 2'
 
@@ -110,9 +115,10 @@ while True:
                 if full_board_check(theBoard):
                     display_board(theBoard)
                     print('The game is a draw!')
-                    break
+                    game_on = False
                 else:
                     turn = 'Player 1'
 
+    # break if no one replay it
     if not replay():
         break
