@@ -2,10 +2,14 @@
 
 This is a rnn model I build to predict bitcoin price trend for practise. This model will use the previous timestep number of data to predict the following day's price. 
 
-Here is some results img from this model. 
+Here are some results images generated with this model. 
 
-![](https://github.com/shusunny/python-project/RNN-predict-model\Figure_with_3layer_100step.png)
-![](https://github.com/shusunny/python-project/RNN-predict-model\Figure_4layer_60step_stdscaler.png)
+Figure for 3 LSTM layers and 100 timestep with minmax scaler 
+![](https://raw.githubusercontent.com/shusunny/python-project/master/RNN-predict-model/Figure_with_3layer_100step.png)
+
+
+Figure for 4 LSTM layers and 60 timestep with standard scaler
+![](https://raw.githubusercontent.com/shusunny/python-project/master/RNN-predict-model/Figure_4layer_60step_stdscaler.png)
 
 ---
 
