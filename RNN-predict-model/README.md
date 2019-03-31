@@ -1,6 +1,6 @@
 # RNN-prediction-model
 
-This is a rnn model I build to predict bitcoin price trend for practise. This model will use the previous timestep number of data to predict the following day's price. 
+This is a rnn model I build to predict bitcoin price trend for practise. This model will use the previous days of data (day's number depends on the timestep entered)to predict the following day's price. 
 
 Here are some results images generated with this model. 
 
