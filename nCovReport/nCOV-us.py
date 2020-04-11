@@ -31,7 +31,7 @@ def catch_daily():
     
     date_list = list() # 日期
     confirm_list = list() # 确诊
-    suspect_list = list() # 疑似
+    tested_list = list() # 疑似
     dead_list = list() # 死亡
     heal_list = list() # 治愈
     for item in data:
@@ -39,24 +39,24 @@ def catch_daily():
         month, day = date[6:10].split('-')
         date_list.append(datetime.strptime('2020-%s-%s'%(month, day), '%Y-%m-%d'))
         confirm_list.append(int(item['positive']))
-        suspect_list.append(int(item['pending']))
+        tested_list.append(item['totalTestResultsIncrease'])
         dead_list.append(int(item['death']))
         heal_list.append(item['hospitalizedCumulative'])
     
-    return date_list, confirm_list, suspect_list, dead_list, heal_list
+    return date_list, confirm_list, tested_list, dead_list, heal_list
 
 def plot_daily():
     """绘制每日确诊和死亡数据"""
     
-    date_list, confirm_list, suspect_list, dead_list, heal_list = catch_daily() # 获取数据
+    date_list, confirm_list, tested_list, dead_list, heal_list = catch_daily() # 获取数据
     
     plt.figure('nCoV-US', facecolor='#f4f4f4', figsize=(10, 8))
     plt.title('nCoV-US', fontsize=20)
     
-    plt.plot(date_list, confirm_list, label='确诊')
-    plt.plot(date_list, suspect_list, label='疑似')
-    plt.plot(date_list, dead_list, label='死亡')
-    plt.plot(date_list, heal_list, label='治愈')
+    plt.plot(date_list, confirm_list, label='positive')
+    plt.plot(date_list, tested_list, label='dailytested')
+    plt.plot(date_list, dead_list, label='death')
+    plt.plot(date_list, heal_list, label='hospitalized')
     
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m-%d')) # 格式化时间轴标注
     plt.legend(loc='best') # 显示图例
