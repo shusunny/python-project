@@ -37,7 +37,7 @@ def catch_daily():
         month, day = date[6:10].split('-')
         date_list.append(datetime.strptime('2020-%s-%s'%(month, day), '%Y-%m-%d'))
         confirm_list.append(int(item['positive']))
-        tested_list.append(item['totalTestResult'])
+        tested_list.append(int(item['totalTestResult']))
     
     return date_list, confirm_list, tested_list
 

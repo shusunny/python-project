@@ -40,7 +40,7 @@ def catch_daily():
         date_list.append(datetime.strptime('2020-%s-%s'%(month, day), '%Y-%m-%d'))
         confirm_list.append(int(item['positive']))
         tested_list.append(item['totalTestResultsIncrease'])
-        dead_list.append(int(item['death']))
+        dead_list.append(item['death'])
         heal_list.append(item['hospitalizedCumulative'])
     
     return date_list, confirm_list, tested_list, dead_list, heal_list
